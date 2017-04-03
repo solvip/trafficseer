@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#
+# Wrap pkg-config, setting the pkg-config path correctly on Darwin.
+#
+
+UNAME=$(uname -s)
+if [ "$UNAME" == "Darwin" ]; then
+    export PKG_CONFIG_PATH=/usr/local/Cellar/opencv3/3.2.0/lib/pkgconfig/
+fi
+
+pkg-config $@
